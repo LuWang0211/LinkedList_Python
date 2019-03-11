@@ -52,17 +52,15 @@ class linked_list:
         per_node = None
 
         Dups_value = dict()   # record unique node.data
-        Dups_value_size = 0   # record unique node.data numbers
         linked_list_size = 0  # record list node.data numbers
 
         if cur_node is None or cur_node.next is None:
             print('Warning: This linked list is None or only includes one node. No Duplicates!')
-            return self
+            return
 
         while cur_node:
             if cur_node.data not in Dups_value: # a node.data shows at first time
-                Dups_value[cur_node.data] = Dups_value_size
-                Dups_value_size += 1
+                Dups_value[cur_node.data] = True
                 per_node = cur_node
             else:                               # remove node
                 per_node.next = cur_node.next
@@ -70,9 +68,9 @@ class linked_list:
             cur_node = cur_node.next            # move to next node
             linked_list_size += 1               
         
-        if Dups_value_size == linked_list_size: # determine whether the list includes duplicates
+        if len(Dups_value) == linked_list_size: # determine whether the list includes duplicates
             print('No duplicates!! Retrun the same linked_list')
-            return self
+            return
 
     ## Q2 - Return Kth to Last  ## find a node in reverse order
     ## Method 1: fint the node index in ascending order by counting the list length
