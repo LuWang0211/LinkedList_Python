@@ -46,9 +46,22 @@ class linked_list:
         print(data_elems)
 
     # From a list to linkedlist(instead add() individuly)
-    @classmethod
-    def from_list(cls, list):
-        pass
+    @staticmethod
+    def from_list(origin_list):
+        linkedlist = linked_list()
+        if len(origin_list) == 0:
+            print('Error: The list is None, can change to linked list!')
+            linkedlist.head = None
+        else:
+            linkedlist.head = Node(origin_list[0])
+            cur_node = linkedlist.head
+
+        for i in range(1, len(origin_list)):
+                cur_node.next = Node(origin_list[i])
+                cur_node = cur_node.next
+
+        return linkedlist
+
     ##---------------Interview Questions---------------
     ## Q1 - Remove Dups(duplicates)
     def remove_Dups(self):
