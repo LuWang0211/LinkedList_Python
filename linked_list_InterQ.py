@@ -45,6 +45,10 @@ class linked_list:
             cur_node = cur_node.next
         print(data_elems)
 
+    # From a list to linkedlist(instead add() individuly)
+    @classmethod
+    def from_list(cls, list):
+        pass
     ##---------------Interview Questions---------------
     ## Q1 - Remove Dups(duplicates)
     def remove_Dups(self):
