@@ -42,10 +42,21 @@ from linked_list_InterQ import Node, linked_list
 # myList_2.remove_Dups()
 # myList_2.display()
 
-# lt = []
-# lt = [7]
-lt = [2, 5, 9, 5, 2, 0, 2, 1]
-myList_3  = linked_list.from_list(lt)
-myList_3.display()
-myList_3.remove_Dups()
-myList_3.display()
+#--------instead add()
+myList_0_list = [2, 0, 5, 9, 5, 2, 0 , 2, 1]
+myList_0  = linked_list.from_list(myList_0_list)
+myList_0.display()
+myList_0.remove_Dups()
+myList_0.display()
+
+myList_1_list = [0, 0, 0, 0, 0]
+myList_1  = linked_list.from_list(myList_1_list)
+myList_1.display()
+myList_1.remove_Dups()
+myList_1.display()
+
+myList_2_list = [0, 1, 2, 3, 4]
+myList_2  = linked_list.from_list(myList_2_list)
+myList_2.display()
+myList_2.remove_Dups()
+myList_2.display()

@@ -45,10 +45,27 @@ class linked_list:
             cur_node = cur_node.next
         print(data_elems)
 
-    # From a list to linkedlist(instead add() individuly)
+    #staticmethod: From a list to linkedlist(instead add() individuly)
     @staticmethod
     def from_list(origin_list):
         linkedlist = linked_list()
+        if len(origin_list) == 0:
+            print('Error: The list is None, can change to linked list!')
+            linkedlist.head = None
+        else:
+            linkedlist.head = Node(origin_list[0])
+            cur_node = linkedlist.head
+
+        for i in range(1, len(origin_list)):
+                cur_node.next = Node(origin_list[i])
+                cur_node = cur_node.next
+
+        return linkedlist
+
+    #classmethod: From a list to linkedlist(instead add() individuly)
+    @classmethod
+    def from_list_cls(cls, origin_list):
+        linkedlist = cls()
         if len(origin_list) == 0:
             print('Error: The list is None, can change to linked list!')
             linkedlist.head = None
@@ -119,7 +136,7 @@ class linked_list:
             fast_node = fast_node.next
             count += 1
 
-        if fast_node is None and count < k :
+        if fast_node is None and count < k: # when do not know the length, check if the k out of list range
             print(f'Error: {k} is out of the list range!')
             return None
 
