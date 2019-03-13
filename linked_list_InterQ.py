@@ -190,6 +190,8 @@ class linked_list:
             # move less data to left side, and larger data to right side
             while cur_node:
                 if (per_node.data >= data and cur_node.data < data) or (per_node.data > data and cur_node.data <= data):
+                # can not use "per_node.data >= data and cur_node.data <= data"
+                # when per_node.data and cur_node.data both equal data -> dead lock
                     temp_data = per_node.data
                     per_node.data = cur_node.data
                     cur_node.data = temp_data
