@@ -102,6 +102,29 @@ class linked_list:
             prevNode = curNode
             curNode = curNode.next
     
+    # Remove the Kth node
+    def remove_Kth(self, index):
+        if index < 0 or self.head is None: # Kth = index, no data
+            print(f"ERROR: 'Get' Index({index}) out of range!")
+            return None
+        
+        cur_Node = self.head
+        prev_Node = None
+
+        for cur_index in range(index+1):
+            if cur_index == index: # remove current node(the Kth node)
+                if not prev_Node:      
+                    self.head = cur_Node.next # k = 0, remove kth node
+                else:
+                    prev_Node.next = cur_Node.next # k > 0, remove kth node
+                break
+
+            prev_Node = cur_Node  
+            cur_Node = cur_Node.next
+
+            if cur_Node is None and cur_index <= index:
+                print(f"ERROR: 'Get' Index({index}) out of range!")
+                return None
     
     # delete middle node
     def remove_middle_node(self):
